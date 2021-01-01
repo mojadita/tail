@@ -24,7 +24,8 @@ void process(char *name, FILE *f, int num_lines)
     char line[MAX_LINE];
 
     LOG(F("[%s]:\n"), name);
-    char **last_lines = calloc(num_lines, sizeof(*last_lines));
+    char **last_lines
+		= calloc(num_lines, sizeof(*last_lines));
     assert(last_lines != NULL);
 
     int n = 0;
@@ -34,14 +35,11 @@ void process(char *name, FILE *f, int num_lines)
             free(last_lines[n]);        /* if reused, first free it */
 
         char *p = strtok(line, "\n");   /* eliminate last \n */
-        if (!p) {                       /* empty line */
-            p = "";
-        }
+        if (!p) p = "";                 /* empty line */
 
         last_lines[n++] = strdup(p);    /* allocate memory for this
                                          * string */
         if (n == num_lines)             /* update n (and wrap if */
-
             n = 0;                      /* needed) */
     }
 

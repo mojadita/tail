@@ -23,7 +23,7 @@ void process(char *name, FILE *f, int num_lines)
 {
     char line[MAX_LINE];
 
-	LOG(F("[%s]:\n"), name);
+    LOG(F("[%s]:\n"), name);
     char **last_lines = calloc(num_lines, sizeof(*last_lines));
     assert(last_lines != NULL);
 

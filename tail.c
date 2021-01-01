@@ -23,6 +23,7 @@ void process(char *name, FILE *f, int num_lines)
 {
     char line[MAX_LINE];
 
+	LOG(F("[%s]:\n"), name);
     char **last_lines = calloc(num_lines, sizeof(*last_lines));
     assert(last_lines != NULL);
 
@@ -84,7 +85,7 @@ int main(int argc, char **argv)
             /* it's a file */
             FILE *f = fopen(argv[i], "r");
             if (!f) {
-                LOG("ERROR: %s: %s\n",
+                LOG(F("ERROR: %s: %s\n"),
                     argv[i], strerror(errno));
                 exit(EXIT_FAILURE);
             }

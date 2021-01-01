@@ -23,7 +23,6 @@ void process(char *name, FILE *f, int num_lines)
 {
     char line[MAX_LINE];
 
-    LOG("INFO: allocating space for %d lines\n", num_lines);
     char **last_lines = calloc(num_lines, sizeof(*last_lines));
     assert(last_lines != NULL);
 
